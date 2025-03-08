@@ -5,6 +5,8 @@ import './Navbar.css'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import MenuIcon from '@mui/icons-material/Menu';
 import Divider from '@mui/material/Divider';
+import SearchIcon from '@mui/icons-material/Search';
+
 
 
 
@@ -30,16 +32,20 @@ const Navbar = () => {
                     <Link to="/home">God.</Link>
                 </div>
                 <div className="navLinks">
+                    <div className="linkContainer">
                 <Link to="/search" 
                         className={activeLink === "/search" ? "active" : ""}
                         onClick={() => handleClick("/search")}>
                         Search
                     </Link>
+                    </div>
+                    <div className="linkContainer">
                     <Link to="/contact" 
                         className={activeLink === "/contact" ? "active" : ""}
                         onClick={() => handleClick("/contact")}>
                         Contact
                     </Link>
+                    </div>
                 </div>
                 <div className="rightStuff">
                     <div className="addNewChurch">
@@ -64,8 +70,26 @@ const Navbar = () => {
                 
 
             </div>
-            <div className="bottomNav">
-                search bar
+            <div className="searchBar">
+                <div class="religionSelection">
+                    Religion
+                    <input type="text" placeholder="Enter Religion"/>
+                </div>
+                <div class="DenominationSelection">
+                    Denomination
+                    <input type="text" placeholder="Enter Denomination"/>
+                </div>
+                <div class="location">
+                    Location
+                    <input type="text" placeholder="Where are you going?"/>
+                </div>
+                <nav className='divder'></nav>
+               
+                <search class="searchIconContainer">
+                    <SearchIcon sx={{color: "#FFFFFFFF"}}/>
+                </search>
+                
+               
             </div>
             <Divider sx={{width: "100%" , borderColor: "#B2B4B7FF"}}/>
             
