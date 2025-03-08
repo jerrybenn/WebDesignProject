@@ -1,0 +1,187 @@
+.navbarContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 20px
+    
+}
+.upperNav {
+    display: flex;
+    justify-content: space-between; /* Distributes items evenly */
+    align-items: center;
+    width: 100%;
+    padding: 10px 20px; /* Adjust padding as needed */
+}
+
+/* Ensure the child elements take up the correct space */
+.logo {
+    flex: 1; /* Pushes everything else away */
+    display: flex;
+    justify-content: flex-start; /* Aligns to the left */
+    align-items: center;
+    padding-left: 50px;
+}
+
+.navLinks {
+    flex: 2; /* Takes more space to stay in center */
+    display: flex;
+    justify-content: center; /* Centers items */
+    align-items: center;
+    gap: 20px; /* Adds space between links */
+    
+}
+
+.rightStuff {
+    flex: 1; /* Pushes everything else away */
+    display: flex;
+    justify-content: flex-end; /* Aligns to the right */
+    align-items: center;
+    gap: 15px;
+    padding-right: 50px;
+}
+
+.logo a {
+    text-decoration: none; /* Removes underline */
+    color: inherit; /* Uses the default text color */
+}
+
+.navLinks a {
+    text-decoration: none; /* Removes underline */
+    color: rgb(122, 122, 122); /* Default color */
+    font-size: 16px; /* Default size */
+    
+}
+
+.navLinks a.active {
+    color: black; /* Make active link black */
+    font-size: 17px; /* Slightly increase font size */
+    
+}
+
+.linkContainer{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 20px;
+
+}
+.linkContainer:hover {
+    background-color: #f5f5f5;
+}
+
+.rightStuff a {
+    text-decoration: none;
+    color: inherit;/* Removes underline */
+}
+
+.profileContainer {
+    display: flex;
+    align-items: center;
+    border: 1px solid lightgray;
+    padding: 5px 10px;
+    border-radius: 25px;
+    transition: box-shadow 0.3s ease-in-out; 
+}
+
+.profileContainer:hover {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+.dropdownMenu {
+    position: absolute;
+    top: 100px; /* Adjust position */
+    right: 20px;
+    background: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    width: 200px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.dropdownMenu a {
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.dropdownMenu a:hover {
+    background: #f5f5f5;
+}
+
+
+.searchBar {
+    width:650px;
+  background:white;
+  box-shadow:0 0 5px hsl(0 0% 78%);
+  height:55px;
+  border-radius:100vw;
+  display:flex;
+  justify-content:center;
+  font-size:0.6rem;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.searchBar div {
+    border-radius:inherit;
+    padding:0.8rem 1.5rem;
+    transition:background 250ms ease;
+}
+
+.searchBar div:hover {
+    background:hsl(0 0% 94%)
+}
+
+.religionSelection, .DenominationSelection, .location {
+    display: flex;
+    flex-direction: column; /* Stacks the items vertically */
+    width: 22%;
+    
+}
+
+.location{
+    width:34%;
+  }
+
+input[type="text"]{
+    background:none;
+    border:none;
+    padding:0.2rem 0 0 0;
+  }
+  
+  input[type="text"]:focus{
+    outline:none;
+  }
+  
+  ::placeholder{
+    font-size:0.75rem;
+  }
+
+  
+
+search{
+    display: flex; /* Ensures content is centered */
+    align-items: center;
+    justify-content: center;
+    
+    width: 75px; /* Adjust size as needed */
+    height: 50px; /* Must be the same as width for a perfect circle */
+    
+    background-color: #ff355b;
+    border-radius: 50%; /* Makes it a circle */
+    
+    margin: 10px;
+    transition: background-color 0.3s ease,  /* Smooth transition */
+}
+
+search:hover {
+    background-color: #b2283d; /* Darker red on hover */
+}
