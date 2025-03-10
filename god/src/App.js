@@ -27,9 +27,6 @@ function App() {
         <Route path="/addNewWorship" element={<AddNewWorship />} />
         </Routes>
       </BrowserRouter>
-
-      <RelCard />
-      <ChurchForm />
     </div>
   );
 }
