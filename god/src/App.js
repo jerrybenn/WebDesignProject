@@ -8,6 +8,8 @@ import Contact from './pages/contactPage/Contact';
 import AddNewWorship from './pages/addNewWorshipPage/AddNewWorship';
 
 import { BrowserRouter, Routes, Route, } from 'react-router-dom';
+import RelCard from './components/RelCard/RelCard';
+import ChurchForm from './components/churchForm/churchForm';
 
 function App() {
   return (
@@ -25,6 +27,9 @@ function App() {
         <Route path="/addNewWorship" element={<AddNewWorship />} />
         </Routes>
       </BrowserRouter>
+
+      <RelCard />
+      <ChurchForm />
     </div>
   );
 }
