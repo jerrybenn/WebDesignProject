@@ -4,7 +4,12 @@ import './Home.css'
 const Home = () => {
   return (
     <div className="homeContainer">
-        <h1>Home</h1>
+        
+        {/* Hero Section */}
+
+        {/* Featured Places of Worship */}
+
+        {/* Saved Places of Worship (only shows up if the user is logged in) */}
     </div>
   )
 }
