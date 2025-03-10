@@ -1,0 +1,4 @@
+.heroSection {
+   display: 'flex';
+   flexDirection: 'column';
+}

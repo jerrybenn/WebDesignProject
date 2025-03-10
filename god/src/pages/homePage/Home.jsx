@@ -6,6 +6,9 @@ const Home = () => {
     <div className="homeContainer">
         
         {/* Hero Section */}
+        <div className="heroSection">
+          <h1>Hero</h1>
+        </div>
 
         {/* Featured Places of Worship */}
 
