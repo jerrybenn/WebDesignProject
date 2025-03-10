@@ -1,9 +1,10 @@
 import React from 'react'
 import './AddNewWorship.css'
+import ChurchForm from '../../components/churchForm/churchForm'
 
 const AddNewWorship = () => {
   return (
-    <div>addNewWorship</div>
+    <div><ChurchForm /></div>
   )
 }
 
