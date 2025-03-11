@@ -15,7 +15,7 @@
   background-position: center;
   filter: blur(0.1rem);
   transition: opacity 2s ease-in; 
-  z-index: 0; /* Ensure background is behind the button */
+  z-index: -1; /* Ensure background is behind the button */
   opacity: 0;
 }
 
@@ -32,5 +32,5 @@
   color: black;
   font-size: 18px;
   border-radius: 8px;
-  z-index: 1; /* Button is on top */
+  z-index: 0;
 }

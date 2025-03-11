@@ -22,7 +22,7 @@ const Home = () => {
         </div>
         
         {/* Saved Places of Worship (only shows up if the user is logged in) */}
-        <div className="featuredSection">
+        <div className="savedSection">
           <h1>Saved Places of Worship</h1>
           <div id="flexRow">
             <PlaceOfWorshipCard />
