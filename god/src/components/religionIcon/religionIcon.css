@@ -1,0 +1,26 @@
+#Icondiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #A9A0A0; 
+    border-radius: 15px; 
+    padding: 20px;
+    width: 200px; 
+    height: 200px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+#Icondiv > p {
+    font-family: Arial, sans-serif; /* Match the font */
+    font-size: 20px;
+    font-weight: bold;
+    color :white;
+    -webkit-text-stroke: 0.75px black;
+    margin: 5px ; 
+}
+
+#Icondiv > img {
+    width: 80px;
+    height: auto;
+}
