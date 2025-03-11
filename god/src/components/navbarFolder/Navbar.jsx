@@ -71,21 +71,21 @@ const Navbar = () => {
 
             </div>
             <div className="searchBar">
-                <div class="religionSelection">
+                <div className="religionSelection">
                     Religion
                     <input type="text" placeholder="Enter Religion"/>
                 </div>
-                <div class="DenominationSelection">
+                <div className="DenominationSelection">
                     Denomination
                     <input type="text" placeholder="Enter Denomination"/>
                 </div>
-                <div class="location">
+                <div className="location">
                     Location
                     <input type="text" placeholder="Where are you going?"/>
                 </div>
                 <nav className='divder'></nav>
                
-                <search class="searchIconContainer">
+                <search className="searchIconContainer">
                     <SearchIcon sx={{color: "#FFFFFFFF"}}/>
                 </search>
                 

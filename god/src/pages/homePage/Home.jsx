@@ -1,5 +1,6 @@
 import React from 'react'
 import './Home.css'
+import Slideshow from '../../components/HomePageComponents/Slideshow'
 
 const Home = () => {
   return (
@@ -7,11 +8,13 @@ const Home = () => {
         
         {/* Hero Section */}
         <div className="heroSection">
-          <h1>Hero</h1>
+          <Slideshow />
         </div>
 
         {/* Featured Places of Worship */}
-
+        <div className="featuredSection">
+          <p>Placeholder</p>
+        </div>
         {/* Saved Places of Worship (only shows up if the user is logged in) */}
     </div>
   )
