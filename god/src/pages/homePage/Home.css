@@ -1,4 +1,21 @@
 .heroSection {
-   display: 'flex';
-   flexDirection: 'column';
+   display: flex;
+   flex-direction: column;
+}
+
+.featuredSection {
+   display: flex;
+   flex-direction: column;
+   padding-left: 6vw;
+   padding-top: 4vh;
+}
+
+.featuredSection > #flexRow {
+   display: flex;
+   flex-direction: row;
+   padding-top: 2vh;
+   padding-bottom: 6vh;
+   padding-left: 2vw;
+   padding-right: 2vw;
+   gap: 2rem;
 }
