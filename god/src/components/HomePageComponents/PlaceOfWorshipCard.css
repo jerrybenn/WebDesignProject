@@ -1,0 +1,12 @@
+.rel-card-container {
+  display: flex;
+  gap: 16px; /* Adjusts spacing between cards */
+  justify-content: center; /* Centers the cards horizontally */
+}
+
+.rel-card {
+  max-width: 345px;
+  background-color: #f8f9fa; /* Off-white background */
+  border: 4px solid #ccc; /* Thicker border */
+  border-radius: 8px; /* Slightly rounded corners */
+}
