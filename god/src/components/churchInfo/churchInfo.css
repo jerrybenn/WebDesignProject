@@ -1,0 +1,48 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position:relative ;
+    padding: 1%;
+    width: 80%;
+    /*background-color: #ccc;*/
+    border: solid black 1px;
+    border-radius: 15px;
+    justify-content: center; /* Centers the cards horizontally */
+}
+.cardTop{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.buildingIMG{
+  height: 400px; /* Match the first design */
+    width: auto;
+    border-radius: 8px;
+}
+
+
+#joinButton{
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  width: 190px;
+  color: white;
+  background-color: #A9A0A0;
+  -webkit-text-stroke: 0.75px black;
+  
+  margin-top: 10px;
+  padding: 5px 40px;
+  flex-direction: column;
+  border-radius: 8px; 
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}
+  
+.rel-card {
+    max-width: 345px;
+    background-color: #f8f9fa;
+    border: 4px solid #ccc;
+    border-radius: 8px;
+}
+  
