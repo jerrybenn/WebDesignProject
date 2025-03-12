@@ -102,18 +102,22 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    z-index: 2;
 }
 
-.dropdownMenu a {
+
+
+.dropdownMenu .menuItem {
     text-decoration: none;
     color: black;
     padding: 10px;
     border-radius: 5px;
     transition: background 0.3s ease;
+    
 }
 
-.dropdownMenu a:hover {
-    background: #f5f5f5;
+.dropdownMenu .menuItem:hover {
+    background: #f5f5f5 !important; /* Ensure hover is applied */
 }
 
 
@@ -175,7 +179,7 @@ search{
     width: 75px; /* Adjust size as needed */
     height: 50px; /* Must be the same as width for a perfect circle */
     
-    background-color: #ff355b;
+    background-color: #b3aa9b;
     border-radius: 50%; /* Makes it a circle */
     
     margin: 10px;
@@ -183,5 +187,5 @@ search{
 }
 
 search:hover {
-    background-color: #b2283d; /* Darker red on hover */
+    background-color: #a09789; /* Darker red on hover */
 }
