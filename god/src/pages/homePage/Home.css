@@ -1,0 +1,52 @@
+.heroSection {
+   display: flex;
+   flex-direction: column;
+}
+
+.featuredSection {
+   display: flex;
+   flex-direction: column;
+   padding-top: 4vh;
+   width: 100%;
+}
+
+.featuredSection > #flexRow {
+   display: flex;
+   flex-direction: row;
+   padding-top: 6vh;
+   padding-bottom: 6vh;
+   padding-left: 4vw;
+   padding-right: 2vw;
+   margin-bottom: 4vh;
+   gap: 2rem;
+   width: 100%;
+   background-color: #BBA590;
+}
+
+.featuredSection > h1 {
+   padding-left: 4vw;
+}
+
+.savedSection {
+   display: flex;
+   flex-direction: column;
+   padding-top: 4vh;
+   width: 100%;
+}
+
+.savedSection > #flexRow {
+   display: flex;
+   flex-direction: row;
+   padding-top: 6vh;
+   padding-bottom: 6vh;
+   padding-left: 4vw;
+   padding-right: 2vw;
+   margin-bottom: 4vh;
+   gap: 2rem;
+   width: 100%;
+   background-color: #BBA590;
+}
+
+.savedSection > h1 {
+   padding-left: 4vw;
+}
