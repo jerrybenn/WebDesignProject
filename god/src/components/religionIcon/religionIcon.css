@@ -1,0 +1,28 @@
+#Icondiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #A9A0A0; 
+    border-radius: 15px; 
+    padding: 5%;
+    width: min(40vw, 300px); 
+    height: auto;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+#Icondiv > p {
+    font-family: Arial, sans-serif;
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    font-weight: bold;
+    color :white;
+    -webkit-text-stroke: 0.75px black;
+    margin: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+#Icondiv > img {
+    width: 40%;
+    max-width: 150px;
+    height: auto;
+}
