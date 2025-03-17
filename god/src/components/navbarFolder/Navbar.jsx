@@ -1,7 +1,10 @@
-import React, { useState } from 'react'
+import React, {useState } from 'react'
 import { Link } from 'react-router-dom';
 
 import './Navbar.css'
+import SignUp from '../profileComponents/signUpForm/SignUp';
+import Login from '../profileComponents/loginForm/Login';
+
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import MenuIcon from '@mui/icons-material/Menu';
 import Divider from '@mui/material/Divider';
@@ -16,6 +19,8 @@ const Navbar = () => {
 
     const [activeLink, setActiveLink] = useState(null);
     const [menuOpen, setMenuOpen] = useState(false);
+    const [showSignUp, setShowSignUp] = useState(false);
+    const [showLogin, setShowLogin] = useState(false);
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
@@ -25,6 +30,33 @@ const Navbar = () => {
         setActiveLink(link);
     };
 
+    const handleSignUpClick = () => {
+        setShowSignUp(true);
+        setMenuOpen(false); // Close menu when opening modal
+    };
+
+    const closeSignUp = () => {
+        setShowSignUp(false);
+    };
+
+    const handleLoginClick = () =>{
+        setShowLogin(true);
+        setMenuOpen(false);
+    }
+
+    const closeLogin = () =>{
+        setShowLogin(false)
+    }
+
+    const switchToLogin = () => {
+        setShowSignUp(false); // Close signup modal
+        setShowLogin(true); // Open login modal
+    };
+
+    const switchToSignup = () =>{
+        setShowLogin(false);
+        setShowSignUp(true);
+    }
     return (
         <div className='navbarContainer'>
             <div className="upperNav">
@@ -57,13 +89,13 @@ const Navbar = () => {
                     </div>
                     {menuOpen && (
                         <div className="dropdownMenu">
-                            <Link to="/signup">Sign up</Link>
-                            <Link to="/login">Log in</Link>
+                            <div className="menuItem" onClick={handleSignUpClick}>Sign Up</div>
+                            <div className="menuItem" onClick= {handleLoginClick}>Log in </div>
                             <Divider sx={{width: "100%" , borderColor: "#B2B4B7FF"}}/>
-                            <Link to="/Saved">Saved</Link>
-                            <Link to="/settings">Settings</Link>
-                            <Link to="/logout">Logout</Link>
-                            <Link to="/help">Help Center</Link>
+                            <Link className="menuItem" to="/saved">Saved</Link>
+                            <Link className="menuItem" to ="/settings">Settings</Link>
+                            <div className="menuItem">Logout</div>
+                            <div className="menuItem">Help Center</div>
                         </div>
                     )}
                 </div>
@@ -71,21 +103,21 @@ const Navbar = () => {
 
             </div>
             <div className="searchBar">
-                <div class="religionSelection">
+                <div className="religionSelection">
                     Religion
                     <input type="text" placeholder="Enter Religion"/>
                 </div>
-                <div class="DenominationSelection">
+                <div className="DenominationSelection">
                     Denomination
                     <input type="text" placeholder="Enter Denomination"/>
                 </div>
-                <div class="location">
+                <div className="location">
                     Location
                     <input type="text" placeholder="Where are you going?"/>
                 </div>
                 <nav className='divder'></nav>
                
-                <search class="searchIconContainer">
+                <search className="searchIconContainer">
                     <SearchIcon sx={{color: "#FFFFFFFF"}}/>
                 </search>
                 
@@ -93,7 +125,8 @@ const Navbar = () => {
             </div>
             <Divider sx={{width: "100%" , borderColor: "#B2B4B7FF"}}/>
             
-            
+            {showSignUp && <SignUp onClose={closeSignUp} switchToLogin={switchToLogin} />}
+            {showLogin && <Login onClose={closeLogin} switchToSignup={switchToSignup} />}
         </div>
     )
 }  

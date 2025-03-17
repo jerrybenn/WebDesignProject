@@ -16,7 +16,7 @@ export default function RelCards() {
         <CardMedia component="img"
          alt="St. Mary's Church" 
          height="140" 
-         image="/RelCardImages/StMary.jpg" />
+         image="assets/RelCardImages/StMary.jpg" />
 
         <CardContent>
           <Typography gutterBottom variant="h5">St. Mary's Church</Typography>
@@ -45,7 +45,7 @@ export default function RelCards() {
         <CardMedia component="img" 
         alt="Grace Church Dover" 
         height="140" 
-        image="/RelCardImages/gracechurchdover.jpg"  />
+        image="assets/RelCardImages/gracechurchdover.jpg"  />
         <CardContent>
 
           <Typography gutterBottom variant="h5">Grace Church Dover</Typography>

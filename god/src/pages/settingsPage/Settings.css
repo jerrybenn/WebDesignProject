@@ -1,0 +1,88 @@
+/* Container for the whole settings page */
+.settings-page {
+    display: flex;
+    height: 100vh;
+  }
+  
+  /* Sidebar styles */
+  .settings-sidebar {
+    width: 250px;
+    background-color: #bba590;
+    padding-top: 20px;
+    color: white;
+  }
+  
+  .settings-sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .settings-sidebar li {
+    padding: 15px 20px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  
+  .settings-sidebar li.active {
+    background-color: #8a6d51;
+  }
+  
+  /* Main content area */
+  .settings-content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    background-color: #f8f9fa;
+  }
+  
+  /* Centered form container */
+  .settings-form-container {
+    width: 100%;
+    max-width: 500px;
+    padding: 30px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  /* Form styles */
+  .settings-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .settings-form label {
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-align: left;
+  }
+  
+  .settings-form input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  button {
+    padding: 12px;
+    margin-top: 20px;
+    background-color: #BBA590;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+  }
+  
+  button:hover {
+    background-color: #8a6d51;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+  }
+  

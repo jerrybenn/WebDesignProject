@@ -1,17 +1,34 @@
 import React from 'react'
 import './Home.css'
-import RelCard from "../../components/RelCard/RelCard";
-import Icon from '../../components/religionIcon/religionIcon.jsx';
-import ChurchInfo from '../../components/churchInfo/churchInfo.jsx';
+import Slideshow from '../../components/HomePageComponents/Slideshow'
+import PlaceOfWorshipCard from '../../components/HomePageComponents/PlaceOfWorshipCard'
+
+
 const Home = () => {
   return (
     <div className="homeContainer">
-        <h1>Home</h1>
-        <ChurchInfo/>
-        <Icon/>{/**/}
+        {/* Hero Section */}
+        <div className="heroSection">
+          <Slideshow />
+        </div>
         
-        <RelCard/>
-
+        {/* Featured Places of Worship */}
+        <div className="featuredSection">
+          <h1>Featured Places of Worship</h1>
+          <div id="flexRow">
+            <PlaceOfWorshipCard />
+            <PlaceOfWorshipCard />
+          </div>
+        </div>
+        
+        {/* Saved Places of Worship (only shows up if the user is logged in) */}
+        <div className="savedSection">
+          <h1>Saved Places of Worship</h1>
+          <div id="flexRow">
+            <PlaceOfWorshipCard />
+            <PlaceOfWorshipCard />
+          </div>
+        </div>
     </div>
   )
 }
