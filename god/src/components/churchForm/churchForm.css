@@ -25,7 +25,7 @@
   }
   
   .church-form-container button {
-    background-color: #007bff;
+    background-color: #BBA590;
     color: white;
     padding: 10px;
     border: none;
@@ -34,6 +34,6 @@
   }
   
   .church-form-container button:hover {
-    background-color: #0056b3;
+    background-color: #8a6d51;
   }
   
