@@ -4,7 +4,7 @@ import ChurchForm from '../../components/churchForm/churchForm'
 
 const AddNewWorship = () => {
   return (
-    <div><ChurchForm /></div>
+    <div className="addNewWorshipContainer"><ChurchForm /></div>
   )
 }
 
