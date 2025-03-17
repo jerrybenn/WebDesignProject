@@ -23,54 +23,44 @@ const Settings = () => {
 
   return (
     <div className="settings-page">
-      {/* Sidebar */}
-      <nav className="settings-sidebar">
-        <ul>
-          <li className="active">Settings</li>
-        </ul>
-      </nav>
+      <div className="settings-form-container">
+        <h2>Settings</h2>
+        <form onSubmit={handleSubmit} className="settings-form">
+          <label>
+            Name:
+            <input 
+              type="text" 
+              name="name" 
+              value={formData.name} 
+              onChange={handleChange} 
+              placeholder="Enter your name" 
+            />
+          </label>
 
-      {/* Settings Form */}
-      <div className="settings-content">
-        <div className="settings-form-container">
-          <h2>Settings</h2>
-          <form onSubmit={handleSubmit} className="settings-form">
-            <label>
-              Name:
-              <input 
-                type="text" 
-                name="name" 
-                value={formData.name} 
-                onChange={handleChange} 
-                placeholder="Enter your name" 
-              />
-            </label>
+          <label>
+            Phone Number:
+            <input 
+              type="tel" 
+              name="number" 
+              value={formData.number} 
+              onChange={handleChange} 
+              placeholder="Enter your number" 
+            />
+          </label>
 
-            <label>
-              Phone Number:
-              <input 
-                type="tel" 
-                name="number" 
-                value={formData.number} 
-                onChange={handleChange} 
-                placeholder="Enter your number" 
-              />
-            </label>
+          <label>
+            Email:
+            <input 
+              type="email" 
+              name="email" 
+              value={formData.email} 
+              onChange={handleChange} 
+              placeholder="Enter your email" 
+            />
+          </label>
 
-            <label>
-              Email:
-              <input 
-                type="email" 
-                name="email" 
-                value={formData.email} 
-                onChange={handleChange} 
-                placeholder="Enter your email" 
-              />
-            </label>
-
-            <button type="submit">Save Changes</button>
-          </form>
-        </div>
+          <button type="submit">Save Changes</button>
+        </form>
       </div>
     </div>
   );
