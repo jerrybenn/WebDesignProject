@@ -1,6 +1,6 @@
 .body {
    width: 100vw;
-   height: 100vh;
+   height: 70vh;
    display: flex;
    justify-content: center;
    align-items: center;
@@ -27,7 +27,7 @@
 
 .flexRow {
    display: flex;
-   flexDirection: row;
+   flex-direction: row;
    justify-content: center;
    gap: 2vw;
 }
