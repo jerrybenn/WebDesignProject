@@ -11,15 +11,46 @@ const churchForm = () => {
     <div className="formInputs">
       <div className="formInputTitle">Worship Name</div>
       <div className="formInput">
-        <input type="text" placeholder="Add Worship Name" />
+        <input type="text" placeholder="Enter Worship Name" />
       </div>      
     </div>
-
-    <div className="formInputs">
-      <div className="formInputTitle">Location</div>
-      <div className="formInput">
-        <input type="text" placeholder="Add Location" />
+    <div className="locationContainer">
+      <div className="formInputs">
+        <div className="formInputTitle">Address</div>
+        <div className="formInput">
+          <input type="text" placeholder="Enter Address" />
       </div>      
+      </div>
+
+      <div className="formInputs">
+        <div className="formInputTitle">Zip Code</div>
+        <div className="formInput">
+          <input type="text" placeholder="Enter Zip Code" />
+      </div>      
+      </div>
+    </div>
+
+    <div className="locationContainer">
+      <div className="formInputs">
+        <div className="formInputTitle">City</div>
+        <div className="formInput">
+          <input type="text" placeholder="Enter City" />
+      </div>      
+      </div>
+
+      <div className="formInputs">
+        <div className="formInputTitle">State</div>
+        <div className="formInput">
+          <input type="text" placeholder="Enter State" />
+      </div>      
+      </div>
+
+      <div className="formInputs">
+        <div className="formInputTitle">Country</div>
+        <div className="formInput">
+          <input type="text" placeholder="Enter Country" />
+      </div>      
+      </div>
     </div>
 
     <div className="formInputs">
