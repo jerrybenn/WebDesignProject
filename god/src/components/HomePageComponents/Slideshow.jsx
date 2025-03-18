@@ -33,6 +33,7 @@ const Slideshow = () => {
             className={`slideshow-background ${isVisible ? "show" : ""}`}
             style={{ backgroundImage: `url(${images[currentIndex]})` }}
          ></div>
+         <div className="slideshowButtonContainer">
          <Button
             variant="contained"
             className="slideshow-button"
@@ -50,6 +51,7 @@ const Slideshow = () => {
          >
             Find your Place of Worship!
          </Button>
+         </div>
       </div>
    );
 };
