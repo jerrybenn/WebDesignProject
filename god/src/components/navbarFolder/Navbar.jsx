@@ -93,9 +93,9 @@ const Navbar = () => {
                             <div className="menuItem" onClick= {handleLoginClick}>Log in </div>
                             <Divider sx={{width: "100%" , borderColor: "#B2B4B7FF"}}/>
                             <Link className="menuItem" to="/saved">Saved</Link>
+                            <Link className="menuItem" to ="/account">Account</Link>
                             <Link className="menuItem" to ="/settings">Settings</Link>
-                            <div className="menuItem">Logout</div>
-                            <div className="menuItem">Help Center</div>
+                            <div className="logout">Logout</div>
                         </div>
                     )}
                 </div>
