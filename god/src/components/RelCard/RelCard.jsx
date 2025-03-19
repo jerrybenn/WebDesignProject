@@ -8,11 +8,10 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import './RelCard.css'; // Import the CSS file
 
-export default function RelCards() {
+export default function RelCards({onClick}) {
   return (
-    <Box className="rel-card-container"> {/* Flex container */}
-      {/* First Card */}
-      <Card className="rel-card">
+    <Box className="rel-card-container"> 
+      <Card className="rel-card" onClick = {onClick} style = {{cursor: 'pointer'}}>
         <CardMedia component="img"
          alt="St. Mary's Church" 
          height="140" 
@@ -33,38 +32,9 @@ export default function RelCards() {
         <CardActions>
           <Button size="small" 
           component="a" href="https://stmaryslancaster.org/" 
-          target="_blank" rel="noopener noreferrer">
+          target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
             Website
           </Button>
-        </CardActions>
-      </Card>
-
-      {/* Second Card */}
-      <Card className="rel-card">
-
-        <CardMedia component="img" 
-        alt="Grace Church Dover" 
-        height="140" 
-        image="assets/RelCardImages/gracechurchdover.jpg"  />
-        <CardContent>
-
-          <Typography gutterBottom variant="h5">Grace Church Dover</Typography>
-
-          <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-            Grace Church Dover<br />
-            350 McKee Rd, Dover, DE 19904<br />
-            (302) 734-8150
-          </Typography>
-
-        </CardContent>
-
-        <CardActions>
-          <Button size="small" 
-          component="a" href="https://www.gracedover.com/" 
-          target="_blank" rel="noopener noreferrer">
-            Website
-          </Button>
-
         </CardActions>
       </Card>
     </Box>
