@@ -12,11 +12,11 @@ import Rating from './star';
 
 export default function churchInfo() {
   return (
-    <Box className="container" sx={{maxWidth: "1200px", margin: "0 auto" }}>
+    <Box className="churchContainer" sx={{maxWidth: "1200px", margin: "0 auto" }}>
       
       <Card className="rel-info">
         <div className = "cardTop">
-          <img src='/RelCardImages/StMary.jpg' height={200} className='buildingIMG'/>
+          <img src='assets/RelCardImages/StMary.jpg' height={200} className='buildingIMG'/>
           <div className='self'>
           <Icon/>
           <Button id= "joinButton">Join</Button>
@@ -26,7 +26,13 @@ export default function churchInfo() {
         <CardContent>
             <Typography gutterBottom variant="h4" className='title'>St. Mary's Church <Rating rating = {4}/></Typography>
             <Typography variant="body2" sx={{ color: 'text.secondary', fontSize: "20px"}}>
-              Assumption of the Blessed Virgin Mary <br />
+              Assumption of the Blessed Virgin Mary
+              <Button size="large" 
+              component="a" href="https://stmaryslancaster.org/" 
+              target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
+                Website
+              </Button>
+              <br />
               119 South Prince Street, Lancaster, PA 17603     (717) 392-2578
             </Typography>
 
