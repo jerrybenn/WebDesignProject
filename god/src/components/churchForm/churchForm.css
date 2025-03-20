@@ -30,6 +30,7 @@
     display: flex;
     border: 1px solid #dcd7d7;
     border-radius: 5px;
+    
 
 }
 
@@ -41,3 +42,36 @@
     border-radius: 5px;
 }
 
+.locationContainer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 10px; /* Adds spacing between Address and Zip Code */
+}
+
+.locationContainer .formInputs {
+    flex: 1; /* Makes both Address and Zip Code take equal width */
+}
+
+.submitContainer{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    align-items: center;
+
+   
+   
+}
+
+.submitButton{
+    display: flex;
+    padding: 10px;
+    background-color: #b3aa9a;
+    border-radius: 5px;
+    width: 80px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+
+}
