@@ -1,4 +1,4 @@
-.container {
+.churchContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -9,7 +9,6 @@
   border-radius: 15px;
   box-sizing: border-box;
 }
-
 .cardTop {
   display: flex;
   justify-content: space-between;

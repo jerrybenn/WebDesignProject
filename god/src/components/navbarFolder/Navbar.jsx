@@ -76,7 +76,7 @@ const Navbar = () => {
                         className={activeLink === "/contact" ? "active" : ""}
                         onClick={() => handleClick("/contact")}>
                         Contact
-                    </Link>
+                     </Link>
                     </div>
                 </div>
                 <div className="rightStuff">

@@ -1,0 +1,24 @@
+.details {
+    position: absolute;
+    top: 30%;
+    left: 0;
+    background: rgb(255, 255, 255); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+  }
+   .closeButton {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background: black;
+    border-radius: 30px;
+    color: white;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 15px;
+
+  }
+ 
