@@ -1,0 +1,66 @@
+.searchBar {
+   width:650px;
+   background:white;
+   box-shadow:0 0 5px hsl(0 0% 78%);
+   height:55px;
+   border-radius:100vw;
+   display:flex;
+   justify-content:center;
+   font-size:0.6rem;
+   margin-bottom: 20px;
+   align-items: center;
+}
+
+.searchBar div {
+   border-radius:inherit;
+   padding:0.8rem 1.5rem;
+   transition:background 250ms ease;
+}
+
+.searchBar div:hover {
+   background:hsl(0 0% 94%)
+}
+
+.religionSelection, .DenominationSelection, .location {
+   display: flex;
+   flex-direction: column; /* Stacks the items vertically */
+   width: 22%;
+   
+}
+
+.location{
+   width:34%;
+}
+
+input[type="text"]{
+   background:none;
+   border:none;
+   padding:0.2rem 0 0 0;
+}
+
+input[type="text"]:focus{
+   outline:none;
+}
+
+::placeholder{
+   font-size:0.75rem;
+}
+
+search{
+   display: flex; /* Ensures content is centered */
+   align-items: center;
+   justify-content: center;
+   
+   width: 75px; /* Adjust size as needed */
+   height: 50px; /* Must be the same as width for a perfect circle */
+   
+   background-color: #b3aa9b;
+   border-radius: 50%; /* Makes it a circle */
+   
+   margin: 10px;
+   transition: background-color 0.3s ease,  /* Smooth transition */
+}
+
+search:hover {
+   background-color: #a09789; /* Darker on hover */
+}

@@ -1,3 +1,10 @@
+.searchContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 4vh;
+  align-items: center;
+}
+
 .details {
     position: absolute;
     top: 30%;
@@ -8,17 +15,26 @@
     align-items: center;
     z-index: 3;
   }
-   .closeButton {
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    background: black;
-    border-radius: 30px;
-    color: white;
-    border: none;
-    padding: 5px;
-    cursor: pointer;
-    font-size: 15px;
 
-  }
- 
+.closeButton {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background: black;
+  border-radius: 30px;
+  color: white;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.cardContainer {
+  display: flex;
+  flex-wrap: wrap; /* Allows the cards to wrap to the next line */
+  gap: 16px; /* Adds space between cards */
+  justify-content: center; /* Centers the grid */
+  padding: 40px; /* Adds padding around the grid */
+  width: 100%; /* Ensures the container uses full width */
+  box-sizing: border-box; /* Ensures padding is included in the width calculation */
+}

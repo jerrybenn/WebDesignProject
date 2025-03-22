@@ -29,12 +29,8 @@ DEBUG = True
 ALLOWED_HOSTS = ["*"] # Allows any host to host this application
 
 REST_FRAMEWORK = { # Necessary for JWT token (for secure authorization)
-    "DEFAULT_AUTHENTICATION_CLASSES": (
-        "rest_framework_simplejwt.authentication.JWTAuthentication",
-    ),
-    "DEFAULT_PERMISSION_CLASSES": [
-        "rest_framework.permissions.IsAuthenticated",
-    ],
+    "DEFAULT_AUTHENTICATION_CLASSES": (), # Remove auth requirements
+    "DEFAULT_PERMISSION_CLASSES": [], # Remove auth requirements
 }
 
 

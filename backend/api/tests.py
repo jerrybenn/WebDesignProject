@@ -416,6 +416,6 @@ def visualize_database():
    print("Database visualization complete!")
 
 if __name__ == "__main__":
-   wipe_database()
-   populate_database()
+   #wipe_database()
+   #populate_database()
    visualize_database()
