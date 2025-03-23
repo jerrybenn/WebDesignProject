@@ -413,9 +413,10 @@ def visualize_database():
    for review in Review.objects.all():
       print(f" - {review.reviewer} rated {review.place} {review.rating}/5: {review.comment}")
    
-   print("Database visualization complete!")
+   print("Database visualization complete!") 
+   
 
 if __name__ == "__main__":
-   wipe_database()
-   populate_database()
+   #wipe_database()
+   #populate_database()
    visualize_database()
