@@ -9,6 +9,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import MenuIcon from '@mui/icons-material/Menu';
 import Divider from '@mui/material/Divider';
 import SearchIcon from '@mui/icons-material/Search';
+import SearchBar from '../searchPageComponents/SearchBar'
 
 
 
@@ -102,27 +103,7 @@ const Navbar = () => {
                 
 
             </div>
-            <div className="searchBar">
-                <div className="religionSelection">
-                    Religion
-                    <input type="text" placeholder="Enter Religion"/>
-                </div>
-                <div className="DenominationSelection">
-                    Denomination
-                    <input type="text" placeholder="Enter Denomination"/>
-                </div>
-                <div className="location">
-                    Location
-                    <input type="text" placeholder="Where are you going?"/>
-                </div>
-                <nav className='divder'></nav>
-               
-                <search className="searchIconContainer">
-                    <SearchIcon sx={{color: "#FFFFFFFF"}}/>
-                </search>
-                
-               
-            </div>
+
             <Divider sx={{width: "100%" , borderColor: "#B2B4B7FF"}}/>
             
             {showSignUp && <SignUp onClose={closeSignUp} switchToLogin={switchToLogin} />}

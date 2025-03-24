@@ -143,7 +143,7 @@
     display:flex;
     justify-content:center;
     font-size:0.6rem;
-    margin-bottom: 20px;
+    margin: 20px;
     align-items: center;
 }
 
@@ -160,7 +160,7 @@
 .religionSelection, .DenominationSelection, .location {
     display: flex;
     flex-direction: column; /* Stacks the items vertically */
-    width: 22%;
+    width: 100%;
     
 }
 
