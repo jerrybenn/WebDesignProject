@@ -10,18 +10,29 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Divider from '@mui/material/Divider';
 import SearchIcon from '@mui/icons-material/Search';
 import SearchBar from '../searchPageComponents/SearchBar'
-
-
+import { AuthContext } from '../AuthProvider';
+import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom'; // Importing useNavigate
 
 
 
 
 const Navbar = () => {
+    // Auth stuff
+    const { logout, user } = useContext(AuthContext);
+    const navigate = useNavigate(); // Initializing the navigate function
 
     const [activeLink, setActiveLink] = useState(null);
     const [menuOpen, setMenuOpen] = useState(false);
     const [showSignUp, setShowSignUp] = useState(false);
     const [showLogin, setShowLogin] = useState(false);
+
+    const handleLogout = () => {
+        if (user) {
+            navigate('/');
+        }
+        logout();
+    }
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
@@ -77,13 +88,15 @@ const Navbar = () => {
                         className={activeLink === "/contact" ? "active" : ""}
                         onClick={() => handleClick("/contact")}>
                         Contact
-                     </Link>
+                    </Link>
                     </div>
                 </div>
                 <div className="rightStuff">
-                    <div className="addNewChurch">
-                        <Link to="/addNewWorship" >Add new worship</Link>
-                    </div>
+                    {user && 
+                        <div className="addNewChurch">
+                            <Link to="/addNewWorship" >Add New Place of Worship</Link>
+                        </div>
+                    }
                     <div className="profileContainer" onClick={toggleMenu}>
                         <MenuIcon sx={{ color: "#6a6a6a", paddingRight: "6px"}}/>
                         <AccountCircleIcon sx={{ fontSize: 40 , color: "#6a6a6a"}}/>
@@ -92,11 +105,16 @@ const Navbar = () => {
                         <div className="dropdownMenu">
                             <div className="menuItem" onClick={handleSignUpClick}>Sign Up</div>
                             <div className="menuItem" onClick= {handleLoginClick}>Log in </div>
-                            <Divider sx={{width: "100%" , borderColor: "#B2B4B7FF"}}/>
-                            <Link className="menuItem" to="/saved">Saved</Link>
-                            <Link className="menuItem" to ="/account">Account</Link>
-                            <Link className="menuItem" to ="/settings">Settings</Link>
-                            <div className="logout">Logout</div>
+                            {/* If the user is logged in, this stuff will show up */}
+                            {user &&
+                                <>
+                                    <Divider sx={{width: "100%" , borderColor: "#B2B4B7FF"}}/>
+                                    <Link className="menuItem" to="/saved">Saved</Link>
+                                    <Link className="menuItem" to ="/account">Account</Link>
+                                    <Link className="menuItem" to ="/settings">Settings</Link>
+                                    <div className="logout" onClick={handleLogout}>Logout</div>
+                                </>  
+                            }
                         </div>
                     )}
                 </div>
