@@ -6,6 +6,10 @@ import api from '../../api.js';
 import PlaceOfWorshipCard from '../../components/searchPageComponents/PlaceOfWorshipCard.jsx';
 import SearchBar from '../../components/searchPageComponents/SearchBar.jsx';
 
+import Grid from '@mui/material/Grid';
+
+
+
 
 const Search = () => {
   const [showChurchInfo, setShowChurchInfo] = useState(false); // Modal used to show the details for the given church
@@ -70,7 +74,6 @@ const Search = () => {
   
   return (
     <div className="searchContainer">
-      <h1>Search</h1>
       <SearchBar 
         religion={filters.religion} 
         denomination={filters.denomination} 
@@ -80,9 +83,14 @@ const Search = () => {
       
       {/* Render the filtered list of places of worship */}
       <div className="cardContainer">
-        {filteredPlaces.map((place) => (
-          <PlaceOfWorshipCard key={place.id} place={place} />
-        ))}
+      <Grid container spacing={2} padding={4} justifyContent="center">
+  {filteredPlaces.map((place) => (
+    <Grid key={place.id} xs={12} sm={6} md={4} lg={3}>
+      <PlaceOfWorshipCard place={place} />
+    </Grid>
+  ))}
+</Grid>
+
       </div>
       
       <RelCard onClick={() => setShowChurchInfo(true)} />
