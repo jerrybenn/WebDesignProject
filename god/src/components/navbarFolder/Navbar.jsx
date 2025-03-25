@@ -1,15 +1,11 @@
 import React, {useState } from 'react'
 import { Link } from 'react-router-dom';
-
 import './Navbar.css'
 import SignUp from '../profileComponents/signUpForm/SignUp';
 import Login from '../profileComponents/loginForm/Login';
-
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import MenuIcon from '@mui/icons-material/Menu';
 import Divider from '@mui/material/Divider';
-import SearchIcon from '@mui/icons-material/Search';
-import SearchBar from '../searchPageComponents/SearchBar'
 import { AuthContext } from '../AuthProvider';
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom'; // Importing useNavigate
@@ -29,9 +25,10 @@ const Navbar = () => {
 
     const handleLogout = () => {
         if (user) {
-            navigate('/');
+            logout(); // Call logout first
+            //alert('You have successfully logged out.'); // Show alert
+            navigate('/'); // Then navigate to home
         }
-        logout();
     }
 
     const toggleMenu = () => {
