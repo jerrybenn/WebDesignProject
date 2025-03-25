@@ -28,19 +28,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"] # Allows any host to host this application
 
-REST_FRAMEWORK = { # Necessary for JWT token (for secure authorization)
-    "DEFAULT_AUTHENTICATION_CLASSES": (), # Remove auth requirements
-    "DEFAULT_PERMISSION_CLASSES": [], # Remove auth requirements
-}
-
-
-SIMPLE_JWT = { # JWT Auth. Config
-    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=30), # Access token lifetime (set to 30 minutes),
-    "REFRESH_TOKEN_LIFETIME": timedelta(days=1), # Refresh token lifetime (set to one day)
-    "USER_ID_FIELD": "d_number",
-}
-
-
 
 # Application definition
 
@@ -54,7 +41,6 @@ INSTALLED_APPS = [
     #
     # User-added 
     "api", # User app
-    "rest_framework", 
     "corsheaders" # Cross origin handling library
 ]
 
@@ -140,7 +126,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Cross origin config. variables
 CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOWS_CREDENTIALS = True
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',  # For local development of your frontend
+]
+CORS_ALLOW_CREDENTIALS = True  # If you need to include credentials in the request (like cookies or authentication headers)
+
 
 
 # Explicitly defining a custom User model to ensure Django does not throw errors

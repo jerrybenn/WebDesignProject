@@ -3,11 +3,41 @@ from rest_framework.response import Response
 from rest_framework import status, generics
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.hashers import make_password
+from rest_framework.views import APIView
+from rest_framework.permissions import AllowAny
+from django.contrib.auth import authenticate
 
 # User-made imports
 from .serializers import *
 from .models import *
 
+
+# START - LOGIN
+class Login(APIView):
+   """
+   Login view to authenticate a user.
+   Checks if the username exists and the password is correct.
+   """
+   permission_classes = [AllowAny]  # Allow anyone to access this view
+
+   def post(self, request, *args, **kwargs):
+      username = request.data.get('username')
+      password = request.data.get('password')
+
+      if not username or not password:
+            return Response({"error": "Both username and password are required."}, status=status.HTTP_400_BAD_REQUEST)
+
+      # Authenticate the user
+      user = authenticate(request, username=username, password=password)
+      
+      if user is not None:
+            # If user is authenticated, return success
+            return Response({"success": True, "message": "Login successful!"}, status=status.HTTP_200_OK)
+      else:
+            # If authentication fails, return error
+            return Response({"error": "Invalid credentials."}, status=status.HTTP_400_BAD_REQUEST)
+
+# STOP  - LOGIN
 
 # START - USERS
 class CreateUserView(generics.CreateAPIView):
@@ -39,14 +69,13 @@ class UserDetail(generics.RetrieveUpdateDestroyAPIView):
    """Retrieve, update, or delete user details (restricted to superusers)."""
    queryset = User.objects.all()
    serializer_class = UserSerializer
-   permission_classes = [IsAuthenticated]
    
    def get_object(self):
       user_identifier = self.kwargs['user_identifier']
       try:
          return get_object_or_404(User, pk=int(user_identifier))
       except ValueError:
-         return get_object_or_404(User, d_number=user_identifier)
+         return get_object_or_404(User, username=user_identifier)
    
    def perform_update(self, serializer):
       if not self.request.user.is_superuser:

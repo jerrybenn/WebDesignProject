@@ -1,5 +1,7 @@
 from django.urls import path
 from .views import (
+      # Login View
+      Login,
       # User Views
       CreateUserView, UserListCreate, UserDetail,
       
@@ -18,8 +20,16 @@ from .views import (
       # Review Views
       ReviewListCreate, ReviewDetail,
    )
+from django.contrib import admin
+from django.urls import path, include
+from api.views import CreateUserView # User-made view to create users
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView # Prebuilt views that allow us to access JWT tokens AND refresh existing ones
+
 
 urlpatterns = [
+      # LOGIN
+      path("login/", Login.as_view(), name="login"),
+
       # USERS
       path("users/", UserListCreate.as_view(), name="user-list-create"),
       path("users/create/", CreateUserView.as_view(), name="user-create"),
