@@ -1,4 +1,5 @@
-import React, {useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react';
+
 import { Link } from 'react-router-dom';
 import './Navbar.css'
 import SignUp from '../profileComponents/signUpForm/SignUp';
@@ -22,6 +23,8 @@ const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [showSignUp, setShowSignUp] = useState(false);
     const [showLogin, setShowLogin] = useState(false);
+    const dropdownRef = useRef();
+
 
     const handleLogout = () => {
         if (user) {
@@ -66,6 +69,25 @@ const Navbar = () => {
         setShowLogin(false);
         setShowSignUp(true);
     }
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+          if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+            setMenuOpen(false);
+          }
+        };
+      
+        if (menuOpen) {
+          document.addEventListener('mousedown', handleClickOutside);
+        } else {
+          document.removeEventListener('mousedown', handleClickOutside);
+        }
+      
+        return () => {
+          document.removeEventListener('mousedown', handleClickOutside);
+        };
+      }, [menuOpen]);
+      
     return (
         <div className='navbarContainer'>
             <div className="upperNav">
@@ -99,21 +121,20 @@ const Navbar = () => {
                         <AccountCircleIcon sx={{ fontSize: 40 , color: "#6a6a6a"}}/>
                     </div>
                     {menuOpen && (
-                        <div className="dropdownMenu">
-                            <div className="menuItem" onClick={handleSignUpClick}>Sign Up</div>
-                            <div className="menuItem" onClick= {handleLoginClick}>Log in </div>
-                            {/* If the user is logged in, this stuff will show up */}
-                            {user &&
-                                <>
-                                    <Divider sx={{width: "100%" , borderColor: "#B2B4B7FF"}}/>
-                                    <Link className="menuItem" to="/saved">Saved</Link>
-                                    <Link className="menuItem" to ="/account">Account</Link>
-                                    <Link className="menuItem" to ="/settings">Settings</Link>
-                                    <div className="logout" onClick={handleLogout}>Logout</div>
-                                </>  
-                            }
-                        </div>
-                    )}
+  <div className="dropdownMenu" ref={dropdownRef}>
+    <div className="menuItem" onClick={handleSignUpClick}>Sign Up</div>
+    <div className="menuItem" onClick={handleLoginClick}>Log in</div>
+    {user && (
+      <>
+        <Divider sx={{ width: "100%", borderColor: "#B2B4B7FF" }} />
+        <Link className="menuItem" to="/saved">Saved</Link>
+        <Link className="menuItem" to="/account">Account</Link>
+        <Link className="menuItem" to="/settings">Settings</Link>
+        <div className="logout" onClick={handleLogout}>Logout</div>
+      </>
+    )}
+  </div>
+)}
                 </div>
                 
 

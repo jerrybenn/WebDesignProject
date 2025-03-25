@@ -1,7 +1,7 @@
 import React from 'react'
 import './Home.css'
 import Slideshow from '../../components/HomePageComponents/Slideshow'
-import PlaceOfWorshipCard from '../../components/HomePageComponents/PlaceOfWorshipCard'
+import PlaceOfWorshipCard from '../../components/worshipCard/PlaceOfWorshipCard'
 
 
 const Home = () => {
@@ -16,8 +16,10 @@ const Home = () => {
         <div className="featuredSection">
           <h1>Featured Places of Worship</h1>
           <div id="flexRow">
+            {/*
             <PlaceOfWorshipCard />
             <PlaceOfWorshipCard />
+            */}
           </div>
         </div>
         
@@ -25,8 +27,10 @@ const Home = () => {
         <div className="savedSection">
           <h1>Saved Places of Worship</h1>
           <div id="flexRow">
+            {/*
             <PlaceOfWorshipCard />
             <PlaceOfWorshipCard />
+            */}
           </div>
         </div>
     </div>

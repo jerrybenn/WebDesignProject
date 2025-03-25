@@ -3,7 +3,7 @@ import './Search.css'
 import RelCard from "../../components/RelCard/RelCard";
 import ChurchInfo from '../../components/churchInfo/churchInfo.jsx';
 import api from '../../api.js';
-import PlaceOfWorshipCard from '../../components/searchPageComponents/PlaceOfWorshipCard.jsx';
+import PlaceOfWorshipCard from '../../components/worshipCard/PlaceOfWorshipCard.jsx';
 import SearchBar from '../../components/searchPageComponents/SearchBar.jsx';
 
 import Grid from '@mui/material/Grid';
@@ -93,7 +93,7 @@ const Search = () => {
 
       </div>
       
-      <RelCard onClick={() => setShowChurchInfo(true)} />
+     
       
       {showChurchInfo && (
         <div className="details">
