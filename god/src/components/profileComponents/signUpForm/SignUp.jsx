@@ -1,45 +1,72 @@
 import React from 'react';
 import './SignUp.css';
 import CloseIcon from '@mui/icons-material/Close';
+import { useState } from 'react';
+import axios from 'axios';
 
 const SignUp = ({ onClose ,switchToLogin}) => {
+
+  const [signUpData, setSignUpData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: ''
+  });
+
+  const handleChange = function(e){
+    setSignUpData({...signUpData, [e.target.name]: e.target.value})
+  }
+
+  const handleSubmit = async function(e) {
+    e.preventDefault()
+    try {
+      const response = await axios.post("http://localhost:3000/home",signUpData)
+      alert(response.data)
+    } catch (error) {
+      console.error("Could not create account:", error)
+      alert("Could not sign up")      
+    }
+  }
+
   return (
     <div className="signupModal">
       <div className="signupContent">
         <div className="signUpTop">
         
-        <div className="title">Create Your Account</div>
-        <div className="closeSignUpButton"><CloseIcon onClick={onClose}/></div>
-
+          <div className="title">Create Your Account</div>
+          <div className="closeSignUpButton"><CloseIcon onClick={onClose}/></div>
+ 
         </div>
+
+        <form onSubmit={handleSubmit}>
         <div className="signUpBody">
             <div className="signUpInputs">
                 <div className="nameContainer">
                     <div className="inputContainer">
-                    <input type="text" placeholder='First Name'/>
+                    <input type="text" name='firstName' placeholder='First Name' value={signUpData.firstName} onChange={handleChange} required/>
                     </div>
 
                     <div className="inputContainer">
-                    <input type="text" placeholder='Last Name'/>
+                    <input type="text" name='lastName' placeholder='Last Name' value={signUpData.lastName} onChange={handleChange} required/>
                     </div>
                     
 
                 </div>
                 <div className="inputContainer">
-                    <input type="text" placeholder='Email'/>
+                    <input type="email" name='email' placeholder='Email' value={signUpData.email} onChange={handleChange} required/>
                     </div>
 
                     <div className="inputContainer">
-                    
-                    <input type="text" placeholder='Password'/>
+                      <input type="password"  name='password' placeholder='Password' value={signUpData.password} onChange={handleChange} required/>
                     </div>
             </div>
             
 
         </div>
-    <div className="signUpButton">
-        Create Account
-    </div>
+      <button className="signUpButton" type='submit'>
+          Create Account
+      </button>
+    </form>
     <div className="alreadyGotAccount">
           Already have an account? 
           <div className="loginLink" onClick={switchToLogin}> Login Here</div>

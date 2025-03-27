@@ -418,5 +418,5 @@ def visualize_database():
 
 if __name__ == "__main__":
    #wipe_database()
-   #populate_database()
+   populate_database()
    visualize_database()
