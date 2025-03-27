@@ -83,13 +83,13 @@ const Search = () => {
       
       {/* Render the filtered list of places of worship */}
       <div className="cardContainer">
-      <Grid container spacing={2} padding={4} justifyContent="center">
-  {filteredPlaces.map((place) => (
-    <Grid key={place.id} xs={12} sm={6} md={4} lg={3}>
-      <PlaceOfWorshipCard place={place} />
-    </Grid>
-  ))}
-</Grid>
+        <Grid container spacing={2} padding={4} justifyContent="center">
+          {filteredPlaces.map((place) => (
+            <Grid key={place.id} xs={12} sm={6} md={4} lg={3}>
+              <PlaceOfWorshipCard place={place} />
+            </Grid>
+          ))}
+        </Grid>
 
       </div>
       
@@ -98,7 +98,7 @@ const Search = () => {
       {showChurchInfo && (
         <div className="details">
           <ChurchInfo />
-          <button className="closeButton" onClick={() => setShowChurchInfo(false)}>X</button>
+          <button className="infoCloseButton" onClick={() => setShowChurchInfo(false)}>X</button>
         </div>
       )}
     </div>
