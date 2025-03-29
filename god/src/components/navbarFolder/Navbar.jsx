@@ -125,6 +125,7 @@ const Navbar = () => {
             {showLogin && <Login onClose={closeLogin} switchToSignup={switchToSignup} />}
         </div>
     )
+    
 }  
 
 export default Navbar
