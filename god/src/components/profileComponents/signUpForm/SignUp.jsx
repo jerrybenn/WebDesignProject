@@ -2,7 +2,8 @@ import React from 'react';
 import './SignUp.css';
 import CloseIcon from '@mui/icons-material/Close';
 import { useState } from 'react';
-import axios from 'axios';
+import api from '../../../api';
+
 
 const SignUp = ({ onClose ,switchToLogin}) => {
 
@@ -20,7 +21,7 @@ const SignUp = ({ onClose ,switchToLogin}) => {
   const handleSubmit = async function(e) {
     e.preventDefault()
     try {
-      const response = await axios.post("http://localhost:3000/home",signUpData)
+      const response = await api.post("/users/create/", signUpData)
       alert(response.data)
     } catch (error) {
       console.error("Could not create account:", error)
