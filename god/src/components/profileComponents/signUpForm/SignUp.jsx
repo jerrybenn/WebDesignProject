@@ -8,10 +8,11 @@ import api from '../../../api';
 const SignUp = ({ onClose ,switchToLogin}) => {
 
   const [signUpData, setSignUpData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: ''
+    first_name: "",
+    last_name: "",
+    username: "",
+    email: "",
+    password: ""
   });
 
   const handleChange = function(e){
@@ -19,6 +20,7 @@ const SignUp = ({ onClose ,switchToLogin}) => {
   }
 
   const handleSubmit = async function(e) {
+    console.log("SignUp Data: ", signUpData);
     e.preventDefault()
     try {
       const response = await api.post("/users/create/", signUpData)
@@ -44,22 +46,25 @@ const SignUp = ({ onClose ,switchToLogin}) => {
             <div className="signUpInputs">
                 <div className="nameContainer">
                     <div className="inputContainer">
-                    <input type="text" name='firstName' placeholder='First Name' value={signUpData.firstName} onChange={handleChange} required/>
+                    <input type="text" name='first_name' placeholder='First Name' value={signUpData.firstName} onChange={handleChange} required/>
                     </div>
 
                     <div className="inputContainer">
-                    <input type="text" name='lastName' placeholder='Last Name' value={signUpData.lastName} onChange={handleChange} required/>
+                    <input type="text" name='last_name' placeholder='Last Name' value={signUpData.lastName} onChange={handleChange} required/>
                     </div>
                     
 
                 </div>
                 <div className="inputContainer">
-                    <input type="email" name='email' placeholder='Email' value={signUpData.email} onChange={handleChange} required/>
-                    </div>
+                  <input type="text" name='username' placeholder='User Name' value={signUpData.userName} onChange={handleChange} required/>
+                </div>
+                <div className="inputContainer">
+                  <input type="email" name='email' placeholder='Email' value={signUpData.email} onChange={handleChange} required/>
+                </div>
 
-                    <div className="inputContainer">
-                      <input type="password"  name='password' placeholder='Password' value={signUpData.password} onChange={handleChange} required/>
-                    </div>
+                <div className="inputContainer">
+                  <input type="password"  name='password' placeholder='Password' value={signUpData.password} onChange={handleChange} required/>
+                </div>
             </div>
             
 
