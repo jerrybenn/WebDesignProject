@@ -2,13 +2,42 @@ import React, { useState, useEffect, useContext } from 'react';
 import './Settings.css';
 import api from '../../api';
 import { AuthContext } from '../../components/AuthProvider'
+import { useNavigate } from 'react-router-dom';
 
 
 
 const Settings = () => {
+  // Instantiate navigation
+  const navigate = useNavigate();
   // Get user info from AuthProvider context
   const { user } = useContext(AuthContext)
   
+  // Grabs the current user's information
+  const handleGrabUserInformation = async () => { 
+    if (user) {
+      try {
+        const res = await api.get(`/users/${user.user_id}/`);
+        setFormData({
+          firstName: res.data.first_name || '',
+          lastName: res.data.last_name || '',
+          email: res.data.email || '',
+        });
+        console.log("Response from server: ", res.data); // Log server response
+      } catch (error) {
+        if (error.response) {
+            alert(`Error: ${error.response.data.error || 'Something went wrong with the server.'}`);
+        } else if (error.request) {
+            alert("No response from server. Please check your connection.");
+        } else {
+            alert("Something went wrong. Our code is likely to blame.");
+        }
+      }
+    } else {
+      alert("Settings page | handleGrabUserInformation | You are not authorized. Log in.")
+    }
+  };  
+  
+  // Data to put into the form, also holds the data sent to the backend
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -39,11 +68,11 @@ const Settings = () => {
       }
     } catch (error) {
       if (error.response) {
-        alert(`Error: ${error.response.data.error || 'Something went wrong with the server.'}`);
+        alert(`Settings page | handleSubmit | Error: ${error.response.data.error || 'Something went wrong with the server.'}`);
       } else if (error.request) {
-        alert("No response from server. Please check your connection.");
+        alert("Settings page | handleSubmit | No response from server. Please check your connection.");
       } else {
-        alert("Something went wrong. Our code is likely to blame.");
+        alert("Settings page | handleSubmit | Something went wrong. Our code is likely to blame.");
       }
     }
   };  
@@ -56,20 +85,26 @@ const Settings = () => {
         lastName: user.last_name || '',
         email: user.email || '',
       });
+    } else {
+      // Navigate to home page if no user is found
+      navigate("/");
     }
-  }, [user]); // Runs when user data changes
-  
-  // Set form data when user is available and on mount
+  }, [user, navigate]); // Runs when user data changes
+
+  // Set form data when user is available
   useEffect(() => {
-    if (user) {
-      setFormData({
-        firstName: user.first_name || '',
-        lastName: user.last_name || '',
-        email: user.email || '',
-      });
+    const fetchData = async () => { // Defining the async wrapper function to grab the user's data
+        await handleGrabUserInformation();
+    };
+    
+    if (!user) { // If the user was not logged in / authed
+        // Navigate to home page if no user is found
+        navigate("/");
+    } else { // If the user is authorized and logged in
+        fetchData(); // Fetch the currently authorized user's data from the backend
     }
-  }, []); // Runs when component mounts
-  
+  }, [user, navigate]); // Runs when user data changes
+
   return (
     <div className="settings-page">
       <div className="settings-form-container">

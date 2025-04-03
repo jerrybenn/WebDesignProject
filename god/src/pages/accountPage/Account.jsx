@@ -2,12 +2,16 @@ import React, { useContext, useEffect, useState } from 'react'
 import './Account.css'
 import { AuthContext } from '../../components/AuthProvider'
 import api from '../../api';
+import { useNavigate } from 'react-router-dom';
+
 
 
 const Account = () => {
+   // Instantiate navigation
+   const navigate = useNavigate();
    // Get user info from AuthProvider context
    const { user } = useContext(AuthContext)
-   const [fetchUser, setFetchUser] = useState(null);
+   const [fetchUser, setFetchUser] = useState(null); // User fetched from the backend using the id from the user auth
    
    
    const handleGrabUserInformation = async () => {
@@ -38,14 +42,19 @@ const Account = () => {
       return date.toLocaleDateString('en-US');
    }
    
+   // Set form data when user is available
    useEffect(() => {
       const fetchData = async () => {
          await handleGrabUserInformation();
       };
       
-      fetchData();
-   }, []);
-   
+      if (!user) {
+         // Navigate to home page if no user is found
+         navigate("/");
+      } else {
+         fetchData();
+      }
+   }, [user, navigate]); // Runs when user data changes
    
    return (
       <>
