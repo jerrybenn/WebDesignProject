@@ -27,11 +27,11 @@ const SignUp = ({ onClose ,switchToLogin}) => {
       const response = await api.post("/users/create/", signUpData)
       alert("Account created")
       //alert(response.data)
-      onClose()
     } catch (error) {
       console.error("Could not create account:", error)
       alert("Could not sign up")      
     }
+    onClose()
   }
 
   return (
@@ -49,17 +49,15 @@ const SignUp = ({ onClose ,switchToLogin}) => {
             <div className="signUpInputs">
                 <div className="nameContainer">
                     <div className="inputContainer">
-                    <input type="text" name='first_name' placeholder='First Name' value={signUpData.firstName} onChange={handleChange} required/>
+                    <input type="text" name='first_name' placeholder='First Name' value={signUpData.first_name} onChange={handleChange} required/>
                     </div>
 
                     <div className="inputContainer">
-                    <input type="text" name='last_name' placeholder='Last Name' value={signUpData.lastName} onChange={handleChange} required/>
+                    <input type="text" name='last_name' placeholder='Last Name' value={signUpData.last_name} onChange={handleChange} required/>
                     </div>
-                    
-
                 </div>
                 <div className="inputContainer">
-                  <input type="text" name='username' placeholder='User Name' value={signUpData.userName} onChange={handleChange} required/>
+                  <input type="text" name='username' placeholder='User Name' value={signUpData.username} onChange={handleChange} required/>
                 </div>
                 <div className="inputContainer">
                   <input type="email" name='email' placeholder='Email' value={signUpData.email} onChange={handleChange} required/>
