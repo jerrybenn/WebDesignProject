@@ -125,7 +125,7 @@ const Navbar = () => {
 
             <Divider sx={{width: "100%" , borderColor: "#B2B4B7FF"}}/>
             
-            {showSignUp && <SignUp onClose={closeSignUp} switchToLogin={switchToLogin} />}
+            {showSignUp && <SignUp onClose={closeSignUp} switchToLogin={switchToLogin}/>}
             {showLogin && <Login onClose={closeLogin} switchToSignup={switchToSignup} />}
         </div>
     )
