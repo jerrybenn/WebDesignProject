@@ -100,13 +100,17 @@ const Navbar = () => {
                     </div>
                     {menuOpen && (
                         <div className="dropdownMenu">
-                            <div className="menuItem" onClick={handleSignUpClick}>Sign Up</div>
-                            <div className="menuItem" onClick= {handleLoginClick}>Log in </div>
+                            {/* If the user is NOT logged in, this stuff will show up */}
+                            {!user && 
+                                <>
+                                    <div className="menuItem" onClick={handleSignUpClick}>Sign Up</div>
+                                    <div className="menuItem" onClick= {handleLoginClick}>Log in </div>
+                                </>
+                            }
                             {/* If the user is logged in, this stuff will show up */}
                             {user &&
                                 <>
-                                    <Divider sx={{width: "100%" , borderColor: "#B2B4B7FF"}}/>
-                                    <Link className="menuItem" to="/saved">Saved</Link>
+                                    <Link className="menuItem" to="/saved">Saved Places</Link>
                                     <Link className="menuItem" to ="/account">Account</Link>
                                     <Link className="menuItem" to ="/settings">Settings</Link>
                                     <div className="logout" onClick={handleLogout}>Logout</div>
