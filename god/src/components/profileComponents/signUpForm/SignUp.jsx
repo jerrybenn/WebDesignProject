@@ -12,7 +12,8 @@ const SignUp = ({ onClose ,switchToLogin}) => {
     last_name: "",
     username: "",
     email: "",
-    password: ""
+    password: "",
+    role_id : 2
   });
 
   const handleChange = function(e){
@@ -24,7 +25,9 @@ const SignUp = ({ onClose ,switchToLogin}) => {
     e.preventDefault()
     try {
       const response = await api.post("/users/create/", signUpData)
-      alert(response.data)
+      alert("Account created")
+      //alert(response.data)
+      onClose()
     } catch (error) {
       console.error("Could not create account:", error)
       alert("Could not sign up")      

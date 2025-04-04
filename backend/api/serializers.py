@@ -44,10 +44,9 @@ class PlaceOfWorshipSerializer(serializers.ModelSerializer):
 
 class UserSerializer(serializers.ModelSerializer):
    role = UserRoleSerializer(read_only=True)
-   role_id = 2
-   '''serializers.PrimaryKeyRelatedField(
+   role_id = serializers.PrimaryKeyRelatedField(
       #queryset=UserRole.objects.all(), source='role', write_only=True, allow_null=True
-   )'''
+   )
 
    password = serializers.CharField(write_only=True, required=True)
 
