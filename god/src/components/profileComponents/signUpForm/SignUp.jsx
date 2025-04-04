@@ -21,6 +21,7 @@ const SignUp = ({ onClose ,switchToLogin}) => {
   }
 
   const handleSubmit = async function(e) {
+    
     console.log("SignUp Data: ", signUpData);
     e.preventDefault()
     try {
@@ -28,9 +29,15 @@ const SignUp = ({ onClose ,switchToLogin}) => {
       alert("Account created")
       //alert(response.data)
     } catch (error) {
-      console.error("Could not create account:", error)
-      alert("Could not sign up")      
+      if (error.response) {
+        console.error("❌ Error response from backend:", error.response.data);
+        alert("Signup failed: " + JSON.stringify(error.response.data));
+      } else {
+        console.error("❌ Unknown error:", error);
+        alert("An unexpected error occurred.");
+      }
     }
+    
     onClose()
   }
 

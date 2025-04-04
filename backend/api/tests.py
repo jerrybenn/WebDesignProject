@@ -387,7 +387,7 @@ def visualize_database():
    print("Visualizing database...", end="\n\n")
    print("User Roles:")
    for role in UserRole.objects.all():
-      print(f" - {role.role_name}: {role.role_description}")
+      print(f" - {role.id} {role.role_name}: {role.role_description}")
    
    print("\nUsers:")
    for user in User.objects.all():
