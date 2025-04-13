@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useRef, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import SignUp from '../profileComponents/signUpForm/SignUp';
 import Login from '../profileComponents/loginForm/Login';
@@ -13,10 +13,24 @@ const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const currentPath = location.pathname;
+  const menuRef = useRef(null);
 
   const [menuOpen, setMenuOpen] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   const handleLogout = () => {
     if (user) {
@@ -54,7 +68,11 @@ const Navbar = () => {
   };
 
   const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
+    if (menuOpen) {
+      setMenuOpen(false);
+    } else {
+      setMenuOpen(true);
+    }
   };
 
   return (
@@ -83,20 +101,20 @@ const Navbar = () => {
               Contact
             </Link>
           </div>
+        </div>
+
+        {/* Profile Section */}
+        <div className="rightStuff" ref={menuRef}>
           {user && (
             <div className="linkContainer">
               <Link
                 to="/addNewWorship"
                 className={currentPath === "/addNewWorship" ? "active" : ""}
               >
-                Add New Place of Worship
+                Add New Worship
               </Link>
             </div>
           )}
-        </div>
-
-        {/* Profile Section */}
-        <div className="rightStuff">
           <div className="profileContainer" onClick={toggleMenu}>
             <MenuIcon sx={{ color: "#6a6a6a", paddingRight: "6px" }} />
             <AccountCircleIcon sx={{ fontSize: 40, color: "#6a6a6a" }} />
@@ -112,7 +130,6 @@ const Navbar = () => {
               )}
               {user && (
                 <>
-                  <Divider sx={{ width: "100%", borderColor: "#B2B4B7FF" }} />
                   <Link className="menuItem" to="/saved">Saved</Link>
                   <Link className="menuItem" to="/account">Account</Link>
                   <Link className="menuItem" to="/settings">Settings</Link>
