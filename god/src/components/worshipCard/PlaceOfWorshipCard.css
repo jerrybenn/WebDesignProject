@@ -4,7 +4,6 @@
   justify-content: center; /* Centers the cards horizontally */
 }
 
-
 .card {
   width: 300px;
   border-radius: 8px; /* Slightly rounded corners */
@@ -26,46 +25,39 @@
   margin-bottom: 10px;
 }
 
-.cardContent {
-  
-}
-
 .cardName {
   font-weight: bold;
   margin-bottom: 5px;
-  
 }
 
 img {
   width: 415px;
   height: 100%;
-  object-fit:fill
+  object-fit: fill;
 }
 
-.cardLocation{
+.cardLocation {
   margin-bottom: 8px;
   color: gray;
 }
 
-.modalContent{
+.modalContent {
   display: flex;
   flex-direction: column;
   height: 500px;
   justify-content: center;
   align-items: center;
+  z-index: 3;
 }
 
-
-
-.modalImageContainer{
+.modalImageContainer {
   display: flex;
   flex-direction: row;
-  
+
   height: 300px;
   width: 500px;
   gap: 5px;
   border-radius: 8px;
- 
 }
 
 .modalLeftImage {
@@ -74,7 +66,6 @@ img {
   object-fit: cover;
   border-radius: 8px 0 0 8px;
   background-color: brown;
-  
 }
 
 .modalLeftImage img {
@@ -92,40 +83,36 @@ img {
   flex-direction: column;
   width: 100%;
   height: 100%;
-  border-radius:0 8px 0 0;
-  
+  border-radius: 0 8px 0 0;
+
   gap: 5px;
-  
 }
 
-.modalRightImageTop{
+.modalRightImageTop {
   width: 100%;
   height: 100%;
   max-width: 100%;
   max-height: 100%;
   object-fit: cover;
-  
-  
 }
 
-.modalRightImageTop img{
+.modalRightImageTop img {
   width: 100%;
   height: 100%;
   max-width: 100%;
   max-height: 100%;
   object-fit: cover;
-  border-radius:0 8px 0 0;
+  border-radius: 0 8px 0 0;
   display: block;
 }
 
-.modalRightBottomLeft{
+.modalRightBottomLeft {
   width: 100%;
   height: 100%;
   object-fit: fill;
-  
 }
 
-.modalRightBottomLeft img{
+.modalRightBottomLeft img {
   width: 100%;
   height: 100%;
   max-width: 100%;
@@ -133,80 +120,112 @@ img {
   object-fit: cover;
 }
 
-.modalRightBottomRight{
+.modalRightBottomRight {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius:0 0 8px 0px;
-  
+  border-radius: 0 0 8px 0px;
 }
 
-.modalRightBottomRight img{
+.modalRightBottomRight img {
   width: 100%;
   height: 100%;
   max-width: 100%;
   max-height: 100%;
   object-fit: cover;
-  border-radius:0 0 8px 0px;
+  border-radius: 0 0 8px 0px;
 }
 
+.cardActions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
 
-
-.bottom{
+.bottom {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius:0 0 8px 0;
+  border-radius: 0 0 8px 0;
   display: flex;
   flex-direction: row;
   gap: 5px;
 }
 
-.modalName{
+.modalName {
   font-weight: bold;
   font-size: 25px;
   margin-top: 10px;
   margin-bottom: 5px;
 }
 
-.modalDescription, .modalPhoneNumber, .modalLocation {
+.modalDescription,
+.modalPhoneNumber,
+.modalLocation {
   color: gray;
   margin-bottom: 5px;
 }
 
-.modalLocation{
+.modalLocation {
   display: flex;
   flex-direction: row;
-  gap: 5px
+  gap: 5px;
 }
 
+@keyframes bounce {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
 
+.bookmarkIcon {
+  background-color: #ffffff;
+  padding: 3px;
+  border-radius: 5px;
+  z-index: 1;
+  cursor: pointer;
+}
 
-.modalInformation{
+.bookmarkIcon:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.bookmarkIcon svg {
+  transition: transform 0.2s ease-in-out;
+}
+
+.bookmarkIcon:active svg {
+  animation: bounce 0.4s ease-in-out;
+}
+
+.modalInformation {
   width: 100%;
 }
 
-.modalWebsiteContainer{
-margin-top: 10px;
- background-color: #b4ab9c;
- width: fit-content;
- border-radius: 5px;
- padding: 5px;
+.modalWebsiteContainer {
+  margin-top: 10px;
+  background-color: #b4ab9c;
+  width: fit-content;
+  border-radius: 5px;
 }
 
-.modalWebsite{
+.modalWebsite {
   margin-bottom: 8px;
   color: rgb(255, 255, 255);
   margin: 5px;
   font-weight: 600;
   font-size: 20px;
-
 }
 
-.modalWebsite a{
+.modalWebsite a {
   text-decoration: none;
   color: inherit;
 }
-.modalWebsiteContaine:hover{
+.modalWebsiteContaine:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
