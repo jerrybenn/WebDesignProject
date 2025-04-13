@@ -1,0 +1,54 @@
+.savedPageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.savedPageTitle {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.savedPageContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  
+}
+
+.savedPagePlaceholder {
+  font-size: 1.2rem;
+  color: #666;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.cardContainer {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Ensure Grid items have proper spacing */
+.MuiGrid-container {
+  margin: 0 !important;
+  width: 100% !important;
+}
+
+.MuiGrid-item {
+  padding: 8px !important;
+  display: flex;
+  justify-content: center;
+}
