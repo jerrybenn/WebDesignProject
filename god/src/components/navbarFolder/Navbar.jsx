@@ -12,9 +12,8 @@ const Navbar = () => {
   const { logout, user } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
-  const isSearchPage = location.pathname === "/search";
+  const currentPath = location.pathname;
 
-  const [activeLink, setActiveLink] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
@@ -24,10 +23,6 @@ const Navbar = () => {
       logout();
       navigate('/');
     }
-  };
-
-  const handleClick = (link) => {
-    setActiveLink(link);
   };
 
   const handleSignUpClick = () => {
@@ -63,47 +58,51 @@ const Navbar = () => {
   };
 
   return (
-    <div className={`navbarContainer ${isSearchPage ? 'searchPageNav' : ''}`}>
+    <div className="navbarContainer">
       <div className="upperNav">
+        {/* Logo */}
         <div className="logo">
-          <Link to="/home">God.</Link>
+          <Link to="/home" className={currentPath === "/home" ? "active" : ""}>God.</Link>
         </div>
 
-        {/* Hide these links on Search page */}
-        {!isSearchPage && (
-          <div className="navLinks">
-            <div className="linkContainer">
-              <Link
-                to="/search"
-                className={activeLink === "/search" ? "active" : ""}
-                onClick={() => handleClick("/search")}
-              >
-                Search
-              </Link>
-            </div>
-            <div className="linkContainer">
-              <Link
-                to="/contact"
-                className={activeLink === "/contact" ? "active" : ""}
-                onClick={() => handleClick("/contact")}
-              >
-                Contact
-              </Link>
-            </div>
-            {user && (
-              <div className="linkContainer">
-                <Link to="/addNewWorship">Add New Place of Worship</Link>
-              </div>
-            )}
+        {/* Navigation Links */}
+        <div className="navLinks">
+          <div className="linkContainer">
+            <Link
+              to="/search"
+              className={currentPath === "/search" ? "active" : ""}
+            >
+              Search
+            </Link>
           </div>
-        )}
+          <div className="linkContainer">
+            <Link
+              to="/contact"
+              className={currentPath === "/contact" ? "active" : ""}
+            >
+              Contact
+            </Link>
+          </div>
+          {user && (
+            <div className="linkContainer">
+              <Link
+                to="/addNewWorship"
+                className={currentPath === "/addNewWorship" ? "active" : ""}
+              >
+                Add New Place of Worship
+              </Link>
+            </div>
+          )}
+        </div>
 
+        {/* Profile Icon */}
         <div className="rightStuff">
           <div className="profileContainer" onClick={toggleMenu}>
             <MenuIcon sx={{ color: "#6a6a6a", paddingRight: "6px" }} />
             <AccountCircleIcon sx={{ fontSize: 40, color: "#6a6a6a" }} />
           </div>
 
+          {/* Dropdown Menu */}
           {menuOpen && (
             <div className="dropdownMenu">
               {!user && (
