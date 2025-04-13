@@ -44,17 +44,13 @@ class CreateUserView(generics.CreateAPIView):
    """Allows only superusers to create new users."""
    queryset = User.objects.all()
    serializer_class = UserSerializer
-   permission_classes = [IsAuthenticated]
    
    def create(self, request, *args, **kwargs):
-      if not request.user.is_superuser:
-         return Response({"error": "Only superusers can create new users."}, status=status.HTTP_403_FORBIDDEN)
       return super().create(request, *args, **kwargs)
 
 class UserListCreate(generics.ListCreateAPIView):
    """Authenticated users can list users; only superusers can create users."""
    serializer_class = UserSerializer
-   permission_classes = [IsAuthenticated]
    
    def get_queryset(self):
       user = self.request.user
@@ -77,12 +73,33 @@ class UserDetail(generics.RetrieveUpdateDestroyAPIView):
       except ValueError:
          return get_object_or_404(User, username=user_identifier)
    
+   def update(self, request, *args, **kwargs):
+      # Remap the keys from camelCase to snake_case if necessary
+      data = {
+         'first_name': request.data.get('firstName'),
+         'last_name': request.data.get('lastName'),
+         'email': request.data.get('email'),
+      }
+      try:
+         self.check_object_permissions(self.request, self.get_object())
+         serializer = self.get_serializer(self.get_object(), data=data, partial=True)
+         
+         if serializer.is_valid(raise_exception=True):  # If validation fails, it raises a ValidationError
+               self.perform_update(serializer)
+               return Response(serializer.data, status=status.HTTP_200_OK)
+      except ValidationError as e:
+         return Response({"errors": e.detail}, status=status.HTTP_400_BAD_REQUEST)
+      except Exception as e:
+         return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+   
    def perform_update(self, serializer):
-      if not self.request.user.is_superuser:
-         return Response({"error": "Only superusers can update users."}, status=status.HTTP_403_FORBIDDEN)
+      # If password is included, hash it
       if 'password' in serializer.validated_data:
          serializer.validated_data['password'] = make_password(serializer.validated_data['password'])
-      serializer.save()
+      
+      # Save the updated data explicitly
+      updated_instance = serializer.save()
+      print(f"Updated instance | FirstName: {updated_instance.first_name} | LastName: {updated_instance.last_name} | Email: {updated_instance.email}")
    
    def perform_destroy(self, instance):
       if not self.request.user.is_superuser:
