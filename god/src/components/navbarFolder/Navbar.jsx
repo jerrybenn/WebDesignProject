@@ -95,14 +95,13 @@ const Navbar = () => {
           )}
         </div>
 
-        {/* Profile Icon */}
+        {/* Profile Section */}
         <div className="rightStuff">
           <div className="profileContainer" onClick={toggleMenu}>
             <MenuIcon sx={{ color: "#6a6a6a", paddingRight: "6px" }} />
             <AccountCircleIcon sx={{ fontSize: 40, color: "#6a6a6a" }} />
           </div>
 
-          {/* Dropdown Menu */}
           {menuOpen && (
             <div className="dropdownMenu">
               {!user && (
