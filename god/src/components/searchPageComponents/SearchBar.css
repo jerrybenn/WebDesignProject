@@ -64,3 +64,44 @@ search{
 search:hover {
    background-color: #a09789; /* Darker on hover */
 }
+
+:root {
+   --navbar-height: 89px; /* Customize as needed */
+ }
+ 
+ .searchContainer {
+   padding-top: var(--navbar-height); /* Prevents overlap from fixed navbar */
+   padding-left: 20px;
+   padding-right: 20px;
+   box-sizing: border-box;
+ }
+ 
+ .cardContainer {
+   margin-top: 20px;
+ }
+ 
+ /* Optional: Style your modal/details section */
+ .details {
+   position: relative;
+   background-color: #f9f9f9;
+   padding: 20px;
+   margin-top: 40px;
+   border-radius: 12px;
+   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+ }
+ 
+ .closeButton {
+   margin-top: 10px;
+   padding: 8px 12px;
+   background-color: #dc2626;
+   color: white;
+   border: none;
+   border-radius: 8px;
+   cursor: pointer;
+   font-weight: bold;
+ }
+ 
+ .closeButton:hover {
+   background-color: #b91c1c;
+ }
+ 

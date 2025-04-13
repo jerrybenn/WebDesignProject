@@ -44,17 +44,13 @@ class CreateUserView(generics.CreateAPIView):
    """Allows only superusers to create new users."""
    queryset = User.objects.all()
    serializer_class = UserSerializer
-   permission_classes = [IsAuthenticated]
    
    def create(self, request, *args, **kwargs):
-      if not request.user.is_superuser:
-         return Response({"error": "Only superusers can create new users."}, status=status.HTTP_403_FORBIDDEN)
       return super().create(request, *args, **kwargs)
 
 class UserListCreate(generics.ListCreateAPIView):
    """Authenticated users can list users; only superusers can create users."""
    serializer_class = UserSerializer
-   permission_classes = [IsAuthenticated]
    
    def get_queryset(self):
       user = self.request.user

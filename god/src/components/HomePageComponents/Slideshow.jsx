@@ -17,11 +17,11 @@ const Slideshow = () => {
 
    useEffect(() => {
       const interval = setInterval(() => {
-         setIsVisible(false); // Fade out
+         setIsVisible(false);
          setTimeout(() => {
             setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-            setIsVisible(true); // Fade in
-         }, 500); // Wait for fade-out transition (matches CSS transition time)
+            setIsVisible(true);
+         }, 500);
       }, 7000);
 
       return () => clearInterval(interval);
@@ -32,25 +32,22 @@ const Slideshow = () => {
          <div
             className={`slideshow-background ${isVisible ? "show" : ""}`}
             style={{ backgroundImage: `url(${images[currentIndex]})` }}
-         ></div>
-         <div className="slideshowButtonContainer">
-         <Button
-            variant="contained"
-            className="slideshow-button"
-            onClick={() => navigate("/search")}
-            sx={{
-               fontWeight: "bold",
-               paddingX: 6,
-               paddingY: 3,
-               fontSize: 20,
-               backgroundColor: "#BBA590D3",
-               "&:hover": {
-                  backgroundColor: "#9F8A6D",
-               },
-            }}
-         >
-            Find your Place of Worship!
-         </Button>
+         />
+         <div className="slideshow-overlay" />
+         <div className="slideshow-content">
+            <div className="text-box">
+               <h1 className="slideshow-title">Find your place of worship</h1>
+               <p className="slideshow-subtitle">
+                  Discover and connect with spiritual communities near you
+               </p>
+               <Button
+                  variant="contained"
+                  className="slideshow-button"
+                  onClick={() => navigate("/search")}
+               >
+                  Explore Now
+               </Button>
+            </div>
          </div>
       </div>
    );
