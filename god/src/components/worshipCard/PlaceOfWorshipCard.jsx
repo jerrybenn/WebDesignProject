@@ -11,17 +11,18 @@ import modalChurchImage3 from '../assets/modalChurchImage3.jpg';
 import modalChurchImage4 from '../assets/modalChurchImage4.jpg';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import BookmarkAddedIcon from '@mui/icons-material/BookmarkAdded';
-
+import { useBookmarks } from '../BookmarkContext';
 
 export default function PlaceOfWorshipCard({ place }) {
    const [open, setOpen] = useState(false);
-   const [isBookmarked, setIsBookmarked] = useState(false);
+   const { toggleBookmark, isBookmarked } = useBookmarks();
+   const bookmarked = isBookmarked(place.id);
 
    const handleOpen = () => setOpen(true);
    const handleClose = () => setOpen(false);
-   const toggleBookmark = (e) => {
+   const handleBookmarkClick = (e) => {
       e.stopPropagation();
-      setIsBookmarked(!isBookmarked);
+      toggleBookmark(place);
    };
 
    const quiltedImages = [
@@ -84,8 +85,11 @@ export default function PlaceOfWorshipCard({ place }) {
                >
                   Website
                </Button>
-               <div className="bookmarkIcon" onClick={toggleBookmark}>
-                  {isBookmarked ? <BookmarkAddedIcon style={{ color: '#b4ab9c' }} /> : <BookmarkBorderIcon />}
+               <div className="bookmarkIcon" onClick={handleBookmarkClick}>
+                  {bookmarked ? 
+                    <BookmarkAddedIcon style={{ color: '#b4ab9c' }} /> : 
+                    <BookmarkBorderIcon />
+                  }
                </div>
             </div>
          </div>
