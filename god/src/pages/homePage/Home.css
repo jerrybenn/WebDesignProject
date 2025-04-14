@@ -55,3 +55,7 @@ body {
 .savedSection > h1 {
    padding-left: 4vw;
 }
+
+.savedPagePlaceholder {
+   padding: 4vw;
+}
