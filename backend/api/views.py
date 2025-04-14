@@ -171,7 +171,6 @@ class PlaceOfWorshipDetail(generics.RetrieveUpdateDestroyAPIView):
 class SavedPlaceListCreate(generics.ListCreateAPIView):
    """List or create saved places associated with the authenticated user."""
    serializer_class = SavedPlaceSerializer
-   permission_classes = [IsAuthenticated]
    
    def get_queryset(self):
       return SavedPlace.objects.filter(user=self.request.user)
@@ -183,7 +182,6 @@ class SavedPlaceDetail(generics.RetrieveDestroyAPIView):
    """Retrieve or delete a saved place."""
    queryset = SavedPlace.objects.all()
    serializer_class = SavedPlaceSerializer
-   permission_classes = [IsAuthenticated]
    
    def get_queryset(self):
       return SavedPlace.objects.filter(user=self.request.user)

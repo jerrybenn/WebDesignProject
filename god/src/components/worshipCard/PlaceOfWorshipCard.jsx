@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import CardActions from '@mui/material/CardActions';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
@@ -13,13 +12,17 @@ import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import BookmarkAddedIcon from '@mui/icons-material/BookmarkAdded';
 import { useBookmarks } from '../BookmarkContext';
 
+
 export default function PlaceOfWorshipCard({ place }) {
    const [open, setOpen] = useState(false);
    const { toggleBookmark, isBookmarked } = useBookmarks();
    const bookmarked = isBookmarked(place.id);
-
+   
+   // Modal helper function
    const handleOpen = () => setOpen(true);
    const handleClose = () => setOpen(false);
+   
+   // Bookmark click
    const handleBookmarkClick = (e) => {
       e.stopPropagation();
       toggleBookmark(place);
@@ -27,32 +30,29 @@ export default function PlaceOfWorshipCard({ place }) {
 
    const quiltedImages = [
       {
-        img: modalChurchImage1,
-        
-        rows: 2,
-        cols: 2,
+         img: modalChurchImage1,
+         rows: 2,
+         cols: 2,
       },
       {
-        img: modalChurchImage2,
-        
-        rows: 1,
-        cols: 2,
+         img: modalChurchImage2,
+         rows: 1,
+         cols: 2,
       },
       {
-        img: modalChurchImage3,
-       
-        rows: 1,
-        cols: 1,
+         img: modalChurchImage3,
+         rows: 1,
+         cols: 1,
       },
       {
-        img: modalChurchImage4,
-        title: 'Congregation',
-        rows: 1,
-        cols: 1,
+         img: modalChurchImage4,
+         title: 'Congregation',
+         rows: 1,
+         cols: 1,
       },
-    ];
-    
-
+   ];
+   
+   
    return (
       <div className="card_Container">
          <div className="card" onClick={handleOpen} sx={{ cursor: 'pointer' }}>
@@ -85,10 +85,11 @@ export default function PlaceOfWorshipCard({ place }) {
                >
                   Website
                </Button>
+               
                <div className="bookmarkIcon" onClick={handleBookmarkClick}>
                   {bookmarked ? 
-                    <BookmarkAddedIcon style={{ color: '#b4ab9c' }} /> : 
-                    <BookmarkBorderIcon />
+                     <BookmarkAddedIcon style={{ color: '#b4ab9c' }} /> : 
+                     <BookmarkBorderIcon />
                   }
                </div>
             </div>
@@ -112,33 +113,33 @@ export default function PlaceOfWorshipCard({ place }) {
                <div className="modalContent">
                   <div className="modalImageContainer">
                      <div className="modalLeftImage">
-                       <img src={modalChurchImage1} alt="" />
+                        <img src={modalChurchImage1} alt="" />
                      </div>
                      <div className="modalRightImage">
-                       <div className="modalRightImageTop">
-                       <img src={modalChurchImage2} alt="" />
-                      
-                       </div>
-                       <div className="bottom">
-                        <div className="modalRightBottomLeft">
-                        <img src={modalChurchImage3} alt="" />
+                        <div className="modalRightImageTop">
+                           <img src={modalChurchImage2} alt="" />
                         </div>
-                        <div className="modalRightBottomRight">
-                        <img src={modalChurchImage4} alt="" />
-                        </div>
+                        <div className="bottom">
+                           <div className="modalRightBottomLeft">
+                              <img src={modalChurchImage3} alt="" />
+                           </div>
+                           <div className="modalRightBottomRight">
+                              <img src={modalChurchImage4} alt="" />
+                           </div>
                         </div>
                      </div>
                   </div>
-                  <div className="modalInformation">
-                  <div className="modalName">
-                     {place.place_name}
-                  </div>
-                  <div className="modalDescription">
-                     {place.place_description}
-                  </div>
                   
-
-                  <div className="modalLocation">
+                  <div className="modalInformation">
+                     <div className="modalName">
+                        {place.place_name}
+                     </div>
+                     
+                     <div className="modalDescription">
+                        {place.place_description}
+                     </div>
+                     
+                     <div className="modalLocation">
                         <div className="modalAddress">
                            {place.address}
                         </div>
@@ -152,21 +153,21 @@ export default function PlaceOfWorshipCard({ place }) {
                            {place.postal_code}
                         </div>
                         <div className="modalCountry">
-                     {place.country}
+                           {place.country}
+                        </div>
+                     </div>
+                     
+                     <div className="modalPhoneNumber">
+                        {place.phone_number}
+                     </div>
+                     
+                     <div className="modalSizeOfCongregation">
+                        {place.SizeOfCongregation}
+                     </div>
                   </div>
                   
-                     </div>
-
-                     <div className="modalPhoneNumber">
-                     {place.phone_number}
-                  </div>
-                  <div className="modalSizeOfCongregation">
-                     {place.SizeOfCongregation}
-                  </div>
-
-                  </div>
                   <div className="modalWebsiteContainer">
-                        <div className="modalWebsite">
+                     <div className="modalWebsite">
                         <a 
                            href={place.website} 
                            target="_blank" 
@@ -175,18 +176,8 @@ export default function PlaceOfWorshipCard({ place }) {
                         >
                            Join Today
                         </a>
-                        </div>
+                     </div>
                   </div>
-              
-                  
-         
-                 
-                 
-                  
-                  
-                  
-                  
-              
                </div>
             </Box>
          </Modal>
