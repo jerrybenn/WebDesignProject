@@ -138,7 +138,7 @@ def populate_database():
       state="CA",
       country="USA",
       phone_number="+15551234567",
-      website="www.firstprotestant.com"
+      website="https://firstprotestant.com/"
    )
    protestant_place2 = PlaceOfWorship.objects.create(
       denomination=protestant_denomination,
@@ -151,7 +151,7 @@ def populate_database():
       state="NY",
       country="USA",
       phone_number="+15559876543",
-      website="www.communitychapel.org"
+      website="https://www.facebook.com/mtviewchurch1916/"
    )
    protestant_place3 = PlaceOfWorship.objects.create(
       denomination=protestant_denomination,
@@ -164,7 +164,7 @@ def populate_database():
       state="TX",
       country="USA",
       phone_number="+15551122334",
-      website="www.gracecathedral.net"
+      website="https://gracecathedral.org/"
    )
    
    # Catholic Places of Worship
@@ -179,7 +179,7 @@ def populate_database():
       state="IL",
       country="USA",
       phone_number="+15554455667",
-      website="www.stmarycatholic.org"
+      website="https://www.stmarycatholic.org/"
    )
    catholic_place2 = PlaceOfWorship.objects.create(
       denomination=catholic_denomination,
@@ -192,7 +192,7 @@ def populate_database():
       state="FL",
       country="USA",
       phone_number="+15557788990",
-      website="www.holyfamilychapel.com"
+      website="https://www.holyfamilynewark.org/"
    )
    catholic_place3 = PlaceOfWorship.objects.create(
       denomination=catholic_denomination,
@@ -205,7 +205,7 @@ def populate_database():
       state="OH",
       country="USA",
       phone_number="+15552233445",
-      website="www.stpeterscathedral.net"
+      website="https://cathedralphila.org/"
    )
    
    # Sunni Places of Worship
@@ -220,7 +220,7 @@ def populate_database():
       state="MI",
       country="USA",
       phone_number="+15556677889",
-      website="www.alnoormosque.org"
+      website="https://masjidal-noor.org/"
    )
    sunni_place2 = PlaceOfWorship.objects.create(
       denomination=sunni_denomination,
@@ -233,7 +233,7 @@ def populate_database():
       state="NJ",
       country="USA",
       phone_number="+15553344556",
-      website="www.sunnicommunity.com"
+      website="http://www.isocde.org/"
    )
    sunni_place3 = PlaceOfWorship.objects.create(
       denomination=sunni_denomination,
@@ -246,7 +246,7 @@ def populate_database():
       state="VA",
       country="USA",
       phone_number="+15558899001",
-      website="www.grandsunnimosque.net"
+      website="http://amana.link/"
    )
    
    # Shiite Places of Worship
@@ -261,7 +261,7 @@ def populate_database():
       state="MA",
       country="USA",
       phone_number="+15555566778",
-      website="www.imamali.org"
+      website="https://imamalimasjid.com/iam/"
    )
    shiite_place2 = PlaceOfWorship.objects.create(
       denomination=shiite_denomination,
@@ -274,7 +274,7 @@ def populate_database():
       state="CT",
       country="USA",
       phone_number="+15559900112",
-      website="www.shiitecenter.com"
+      website="https://www.sijpa.org/"
    )
    shiite_place3 = PlaceOfWorship.objects.create(
       denomination=shiite_denomination,
@@ -287,7 +287,7 @@ def populate_database():
       state="PA",
       country="USA",
       phone_number="+15551122335",
-      website="www.grandshiitemasjid.net"
+      website="https://www.masjid-e-ali.org/"
    )
    
    # Vaishnavism Places of Worship
@@ -302,7 +302,7 @@ def populate_database():
       state="IN",
       country="USA",
       phone_number="+15554455668",
-      website="www.srikrishna.org"
+      website="https://krishnatemple.org/"
    )
    vaishnavism_place2 = PlaceOfWorship.objects.create(
       denomination=vaishnavism_denomination,
@@ -315,7 +315,7 @@ def populate_database():
       state="GA",
       country="USA",
       phone_number="+15557788991",
-      website="www.ramamandir.com"
+      website="https://www.shreerammandir.org/"
    )
    vaishnavism_place3 = PlaceOfWorship.objects.create(
       denomination=vaishnavism_denomination,
@@ -328,7 +328,7 @@ def populate_database():
       state="DE",
       country="USA",
       phone_number="+15531122335",
-      website="www.vaishishere.net"
+      website="https://www.instagram.com/vishnubhavanfoods/"
    )
    
    places_of_worship_list = [

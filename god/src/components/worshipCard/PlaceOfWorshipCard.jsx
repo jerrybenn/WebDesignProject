@@ -24,7 +24,7 @@ export default function PlaceOfWorshipCard({ place }) {
       e.stopPropagation();
       toggleBookmark(place);
    };
-
+   
    const quiltedImages = [
       {
         img: modalChurchImage1,
@@ -170,8 +170,7 @@ export default function PlaceOfWorshipCard({ place }) {
                         <a 
                            href={place.website} 
                            target="_blank" 
-                           rel="noopener noreferrer"
-                           
+                           rel="noopener noreferrer" 
                         >
                            Join Today
                         </a>
